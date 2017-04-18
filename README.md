@@ -5,7 +5,7 @@ This package includes scripts and configuration used by [react-with-moxy](https:
 
 ## Installation
 
-`$ npm install react-with-moxy-scripts --server-dev`
+`$ npm install react-with-moxy-scripts --save-dev`
 
 
 ## Motivation
@@ -17,7 +17,7 @@ This package includes scripts and configuration used by [react-with-moxy](https:
 - Hard to update the tooling code since it's built in into the project
 
 
-`react-with-moxy-scripts` abstracts all the complexity behind setting up webpack, server-side rendering and other complex tasks that would otherwise be contained in the top-level projects.
+`react-with-moxy-scripts` abstracts all the complexity behind setting up webpack, server-side rendering and other complex tasks that would otherwise be part of top-level projects.
 
 
 ## Usage
