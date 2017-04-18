@@ -101,14 +101,14 @@ module.exports = {
 }
 ```
 
-Additionally you may tweak some other aspects. Note
+Additionally you may tweak some other advanced aspects:
 
 ```js
 module.exports = {
-    // Inject babel polyfills as part of the build (false by default, default setup uses https://polyfill.io)
-    useBabelPolyfills: false,
-    // Custom tester for async modules that will be available in the build manifest
-    asyncModulesTest: (module) => /src\/pages\/([a-z][a-z-_/]+)\/index\.js$/.test(module),
+    // Inject `babel-polyfill` as part of the build
+    // This is disabled by default, standard setup uses https://polyfill.io
+    useBabelPolyfills: true,
+    // TODO:
 }
 ```
 
