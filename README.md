@@ -70,32 +70,34 @@ The `app` passed into the function is an instance of an [express](https://expres
 
 ```
 config/
-    config.js
-    config-dev.js
-    config-prod.js
-    *webpack.config.js
-    *server.js
+    *config.js
+    *config-dev.js
+    *config-prod.js
+    *webpack.config.js (optional)
+    *server.js (optional)
 src/
     pages/
     App.js
     App.css
-    client-renderer.js
-    server-renderer.js
+    *client-renderer.js
+    *server-renderer.js
 web/
+    *build/
     .index.js
     favicon.icon
 ```
 
-
-Though, you may change it by creating a `.rwm.config.js` file in the root of your project:
+*Files signaled with * are enforced* but you may change their location by creating a `.rwm.config.js` file in the root of your project:
 
 ```js
 module.exports = {
-    buildDir: 'web/build',
-    srcDir: 'src',
     configDir: 'config',
+    srcDir: 'src',
+    buildDir: 'web/build',
     webpackConfigFile: 'config/webpack.config.js',
     serverConfigFile: 'config/server.js',
+    clientRendererFile: 'src/client-renderer.js',
+    serverRendererFile: 'src/server-renderer.js',
 }
 ```
 
