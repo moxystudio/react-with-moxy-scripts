@@ -40,11 +40,16 @@ In your package.json:
 Simply create a `webpack.config.js` file in the `config/` folder like so:
 
 ```js
-function webpackConfig(config, rc) {
-    // You may tweak config here, see: https://github.com/mozilla-neutrino/webpack-chain
+function webpack(config, { type, env, minify, rc }) {
+    // You may tweak the webpack `config`
+    // Additionally:
+    // - `type` is either client or server
+    // - `env` is the environment being configured
+    // - `minify` is a flag telling us to optimize the assert or not
+    // - `rc` is the runtime configuration, see bellow
 }
 
-module.exports = webpackConfig;
+module.exports = webpack;
 ```
 
 The `config` passed into the function is a [webpack-chain](https://github.com/mozilla-neutrino/webpack-chain) instance to easily allow you to modify the webpack configuration. You may look into [our config](TODO) to see what's being offered by default.
@@ -57,7 +62,8 @@ Simply create a `server.js` file in the `config/` folder like so:
 
 ```js
 function server(app) {
-    // You may configure the express app, add routes or middleware
+    // `app` is an express server instance
+    // You made configure it, add routes or add middleware
 }
 ```
 
@@ -73,7 +79,7 @@ The `app` passed into the function is an instance of an [express](https://expres
     config.js
     config-dev.js
     config-prod.js
-    *webpack.config.js (optional)
+    *webpack.js (optional)
     *server.js (optional)
 src/
     pages/
@@ -92,7 +98,7 @@ web/
 ```js
 module.exports = {
     configDir: 'config',
-    webpackConfigFile: 'config/webpack.config.js',
+    webpackConfigFile: 'config/webpack.js',
     serverConfigFile: 'config/server.js',
     clientRendererFile: 'src/client-renderer.js',
     serverRendererFile: 'src/server-renderer.js',
@@ -106,7 +112,7 @@ Additionally you may tweak some other advanced aspects:
 module.exports = {
     // Inject `babel-polyfill` as part of the build
     // This is disabled by default, standard setup uses https://polyfill.io
-    useBabelPolyfills: true,
+    useBabelPolyfill: true,
     // TODO:
 };
 ```
