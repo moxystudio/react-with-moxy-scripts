@@ -69,10 +69,10 @@ The `app` passed into the function is an instance of an [express](https://expres
 `react-with-moxy` is opinionated in how a project should be structured - it expects the following structure:
 
 ```
-config/
-    *config.js
-    *config-dev.js
-    *config-prod.js
+*config/
+    config.js
+    config-dev.js
+    config-prod.js
     *webpack.config.js (optional)
     *server.js (optional)
 src/
@@ -87,18 +87,17 @@ web/
     favicon.icon
 ```
 
-*Files signaled with * are enforced* but you may change their location by creating a `.rwm.config.js` file in the root of your project:
+*Paths signaled with * are enforced* but you may change their location by creating a `.rwm.config.js` file in the root of your project:
 
 ```js
 module.exports = {
     configDir: 'config',
-    srcDir: 'src',
-    buildDir: 'web/build',
     webpackConfigFile: 'config/webpack.config.js',
     serverConfigFile: 'config/server.js',
     clientRendererFile: 'src/client-renderer.js',
     serverRendererFile: 'src/server-renderer.js',
-}
+    buildDir: 'web/build',
+};
 ```
 
 Additionally you may tweak some other advanced aspects:
@@ -109,7 +108,7 @@ module.exports = {
     // This is disabled by default, standard setup uses https://polyfill.io
     useBabelPolyfills: true,
     // TODO:
-}
+};
 ```
 
 
